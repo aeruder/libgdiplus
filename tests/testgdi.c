@@ -33,7 +33,7 @@ static void win_deinit(win_t *win);
 static void win_draw(win_t *win);
 static void win_handle_events(win_t *win);
 
-#define CHECK_GDIP_ST(st)	do { if(st != Ok) { g_print("got st: %d expected Ok", st); } } while (0)
+#define CHECK_GDIP_ST(st)	do { if(st != Ok) { g_print("%s:%d: got st: %d expected %d\n", __FILE__, __LINE__, st, Ok); } } while (0)
 
 static void
 win_draw(win_t *win)
