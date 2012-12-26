@@ -129,7 +129,11 @@ win_draw(win_t *win)
 int
   main(int argc, char *argv[])
 {
+	GdiplusStartupInput gdiplusStartupInput;
+	ULONG_PTR gdiplusToken;
 	win_t win;
+
+	GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 
 	win.dpy = XOpenDisplay(0);
 
@@ -148,6 +152,7 @@ int
 
 	XCloseDisplay(win.dpy);
 
+	GdiplusShutdown(gdiplusToken);
 	return 0;
 }
 
